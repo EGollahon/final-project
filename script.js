@@ -271,7 +271,7 @@ var app = new Vue({
       this.popUpType = "thanks";
       setTimeout(() => {
         this.popUpVisible = false;
-      }, 2500)
+      }, 1000)
     }
   }
 })
