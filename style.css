@@ -1,0 +1,266 @@
+/* Have to fix cart items going off popup if too many */
+
+body {
+  background-color: #000000;
+  color: #dddddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.limelight {
+  font-family: 'Limelight', cursive;
+  font-size: 30pt;
+  text-align: center;
+  font-weight: normal;
+}
+
+.josefin {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20pt;
+  text-align: center;
+  line-height: 50px;
+}
+
+.topContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 75px 0px 50px 0px;
+}
+
+.container {
+  position: relative;
+  height: 350px;
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 100px;
+}
+.card {
+  height: 350px;
+  width: 350px;
+  border: 3px solid #3d3d3d;
+  position: absolute;
+  transition: all 0.5s;
+}
+.small {
+  height: 250px;
+  width: 250px;
+  left: 25px;
+  top: 25px;
+  padding: 25px;
+  position: absolute;
+  border: 1px solid #3d3d3d;
+  transition: all 0.5s;
+  background-image: url("");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #000000;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.diamond {
+  position: absolute;
+  transform: rotate(45deg);
+  left: 0px;
+  top: 0px;
+  border: 1px solid #3d3d3d;
+  transition: all 0.5s;
+}
+
+.button {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16pt;
+  border: 3px solid #3d3d3d;
+  padding: 10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  max-width: 200px;
+  height: 25px;
+  box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+.container:hover > .card > .small > .button {
+  opacity: 1;
+}
+
+.fender:hover > .card {
+  border: 3px solid #D81159;
+}
+.fender:hover > .diamond {
+  border: 1px solid #D81159;
+}
+.fender:hover > .card > .small {
+  border: 1px solid #D81159;
+}
+.fender:hover > .card > .small > .button {
+  border: 3px solid #D81159;
+}
+
+.yamaha:hover > .card {
+  border: 3px solid #0CCA4A;
+}
+.yamaha:hover > .diamond {
+  border: 1px solid #0CCA4A;
+}
+.yamaha:hover > .card > .small {
+  border: 1px solid #0CCA4A;
+}
+.yamaha:hover > .card > .small > .button {
+  border: 3px solid #0CCA4A;
+}
+
+.maton:hover > .card {
+  border: 3px solid #6564DB;
+}
+.maton:hover > .diamond {
+  border: 1px solid #6564DB;
+}
+.maton:hover > .card > .small {
+  border: 1px solid #6564DB;
+}
+.maton:hover > .card > .small > .button {
+  border: 3px solid #6564DB;
+}
+
+.instrumentContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.popUp {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.popUpContent {
+  height: 85%;
+  width: 90%;
+  padding: 20px 25px 20px 25px;
+  border: 3px solid #3d3d3d;
+  background-color: #000000;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+.popUpBorder {
+  border: 1px solid #3d3d3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  min-height: 800px;
+}
+.thanksBorder {
+  border: 1px solid #3d3d3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 200px;
+}
+.thanksContent {
+  height: 85%;
+  width: 90%;
+  border: 3px solid #3d3d3d;
+  background-color: #000000;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.popUpInputContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+img {
+  max-height: 100%;
+  max-width: 50%;
+  margin: 0px 50px 0px 50px;
+}
+.cartImage {
+  height: 100px;
+  width: 100px;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #3d3d3d;
+  padding: 15px;
+  box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+  margin: 0px 0px 30px 0px;
+}
+.cartButtonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0px 0px 0px;
+}
+
+.popUpButton {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18pt;
+  border: 3px solid #3d3d3d;
+  padding: 15px;
+  text-align: center;
+  max-width: 200px;
+  box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+.fenderPopUp:hover {
+  border: 3px solid #D81159;
+}
+.yamahaPopUp:hover {
+  border: 3px solid #0CCA4A;
+}
+.matonPopUp:hover {
+  border: 3px solid #6564DB;
+}
+.simpleButton:hover {
+  border: 3px solid #dddddd;
+}
+
+.nameInput {
+  font-family: 'Limelight', cursive;
+  font-size: 24pt;
+}
+.textInput {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16pt;
+}

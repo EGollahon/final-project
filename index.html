@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - final</title>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Limelight&display=swap" rel="stylesheet"><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <h1 class="limelight" style="font-size: 45pt">Music Store</h1>
+  <div class="topContainer">
+    <div class="button simpleButton" v-on:click="showCreateInstrument" style="opacity: 1">Create Instrument</div>
+    
+    <div class="josefin" style="display: flex; flex-direction: column; align-items: center;">
+      Search by Brand<br>
+      <div><input type="radio" id="Fender" name="search" value="Fender" v-model="search"><label class="textInput" for="Fender">Fender</label>
+      <input type="radio" id="Yamaha" name="search" value="Yamaha" v-model="search"><label class="textInput" for="Yamaha">Yamaha</label>
+      <input type="radio" id="Maton" name="search" value="Maton" v-model="search"><label class="textInput" for="Maton">Maton</label></div>
+      <div v-on:click="resetSearch" class="button simpleButton" style="opacity: 1">Reset</div>
+    </div>
+    
+    <div class="button simpleButton" v-on:click="showCart" style="opacity: 1">View Cart</div>
+  </div>
+  
+  <div class="instrumentContainer">
+    <div class="josefin" v-if="instruments.length === 0">Store is Empty</div>
+    <instrument v-if="search === item.brand || search === ''" @click="showPopUp" @add="addToCart" v-for="(item, index) in instruments" v-bind:item="item" v-bind:index="index"></instrument>
+  </div>
+  
+  <div class="popUp" v-if="popUpVisible">
+    <createinstrument v-if="popUpType === 'create'" @hide="hidePopUp" @create="createInstrument"></createinstrument>
+    <instrumentpopup v-if="popUpType === 'info'" @hide="hidePopUp" @add="popUpAddToCart" v-bind:item="popUp"></instrumentpopup>
+    <cartpopup v-if="popUpType === 'cart'" @hide="hidePopUp" @empty="emptyCart" @remove="removeCartItem" @checkout="checkOut" v-bind:cart="cart"></cartpopup>
+    
+    <div class="container" v-if="popUpType === 'thanks'">
+      <div class="card diamond" style="border-color: #D4AF37"></div>
+      <div class="card" style="border-color: #D4AF37"><div class="small" style="border-color: #D4AF37">
+        <h3 class="limelight">Thanks for your purchase!</h3>
+      </div></div>
+    </div>
+    
+    
+  </div>
+  
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
